@@ -1,0 +1,31 @@
+﻿@model List<Prenotazione>
+@{
+    ViewData["Title"] = "Gestione Prenotazioni";
+}
+
+<h2>Prenotazioni</h2>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#prenotazioneModal">Nuova Prenotazione</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Camera</th>
+            <th>Data Inizio</th>
+            <th>Data Fine</th>
+            <th>Stato</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prenotazione in Model)
+        {
+            <tr>
+                <td>@prenotazione.Cliente.Nome @prenotazione.Cliente.Cognome</td>
+                <td>@prenotazione.Camera.Numero</td>
+                <td>@prenotazione.DataInizio.ToShortDateString()</td>
+                <td>@prenotazione.DataFine.ToShortDateString()</td>
+                <td>@prenotazione.Stato</td>
+            </tr>
+        }
+    </tbody>
+</table>

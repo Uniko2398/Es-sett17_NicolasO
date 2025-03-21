@@ -1,0 +1,32 @@
+﻿@model List<Camera>
+@{
+    ViewData["Title"] = "Gestione Camere";
+}
+
+<h2>Camere</h2>
+<a class="btn btn-success mb-3" href="/Camera/Create">Aggiungi Camera</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Tipo</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var camera in Model)
+        {
+            <tr>
+                <td>@camera.Numero</td>
+                <td>@camera.Tipo</td>
+                <td>@camera.Prezzo €</td>
+                <td>
+                    <a class="btn btn-warning" href="/Camera/Edit/@camera.CameraId">Modifica</a>
+                    <a class="btn btn-danger" href="/Camera/Delete/@camera.CameraId">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
